@@ -1,0 +1,6 @@
+id=cpulog
+name=cpulog
+version=1
+versionCode=1
+author=Moe Hacker
+description=log cpu freq
