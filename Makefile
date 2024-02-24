@@ -1,10 +1,16 @@
 all:
-	$(CC) -fPIE -static -Wl,--gc-sections -fstack-protector-all -fstack-clash-protection -mshstk  -D_FORTIFY_SOURCE=3 -Wno-unused-result -O2 -std=gnu99 -Wno-gnu-zero-variadic-macro-arguments -o cpulog cpu.c -z noexecstack -z now
-	$(CC) -fPIE -static -Wl,--gc-sections -fstack-protector-all -fstack-clash-protection -mshstk  -D_FORTIFY_SOURCE=3 -Wno-unused-result -O2 -std=gnu99 -Wno-gnu-zero-variadic-macro-arguments -o cpubt bt.c -z noexecstack -z now
+	$(CC) -fPIE -static -Wl,--gc-sections -fstack-protector-all -fstack-clash-protection -mshstk  -D_FORTIFY_SOURCE=3 -Wno-unused-result -O2 -std=gnu99 -Wno-gnu-zero-variadic-macro-arguments -o cpulog cpulog.c -z noexecstack -z now
+	$(CC) -fPIE -static -Wl,--gc-sections -fstack-protector-all -fstack-clash-protection -mshstk  -D_FORTIFY_SOURCE=3 -Wno-unused-result -O2 -std=gnu99 -Wno-gnu-zero-variadic-macro-arguments -o cpubt cpubt.c -z noexecstack -z now
+	$(CC) -fPIE -static -Wl,--gc-sections -fstack-protector-all -fstack-clash-protection -mshstk  -D_FORTIFY_SOURCE=3 -Wno-unused-result -O2 -std=gnu99 -Wno-gnu-zero-variadic-macro-arguments -o gpulog gpulog.c -z noexecstack -z now
+	$(CC) -fPIE -static -Wl,--gc-sections -fstack-protector-all -fstack-clash-protection -mshstk  -D_FORTIFY_SOURCE=3 -Wno-unused-result -O2 -std=gnu99 -Wno-gnu-zero-variadic-macro-arguments -o gpubt gpubt.c -z noexecstack -z now
 	strip cpulog
 	strip cpubt
+	strip gpulog
+	strip gpubt
 	cp cpulog module/
+	cp gpulog module/
 	cp cpubt module/system/bin/
+	cp gpubt module/system/bin/
 	cd module&&zip -r ../cpulog.zip .
 format:
 	clang-format -i *.c
