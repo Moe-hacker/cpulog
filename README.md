@@ -1,5 +1,5 @@
 # Usage:
-Run `cpubt` command in a root shell to see the backtrace of cpu freq.
+Run `cpubt/gpubt` command in a root shell to see the backtrace of cpu/gpu freq.
 ```
 ~ # cpubt
 CPU0:
@@ -76,4 +76,11 @@ CPU7:
 1881Mhz : #                                  1.85%
 2995Mhz : ######                            16.67%
 
+~ # gpubt
+GPU:
+ 220Mhz : ###                                7.58%
+ 285Mhz : ############################      85.35%
+ 324Mhz : #                                  0.51%
+ 710Mhz : #                                  0.51%
+ 765Mhz : ##                                 6.06%
 ```
